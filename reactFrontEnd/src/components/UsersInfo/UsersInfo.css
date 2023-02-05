@@ -1,0 +1,36 @@
+table {
+  width: 90vw;
+  border-collapse: collapse;
+  margin: 50px auto;
+}
+
+tr:nth-of-type(odd) {
+  background: #f8f5cda5;
+}
+
+th {
+  background: #020b08a0;
+  color: white;
+  font-weight: bold;
+}
+
+td,
+th {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 18px;
+}
+
+.user__info__name {
+  width: 20vw;
+}
+.user__info__email {
+  width: 30vw;
+}
+.user__info__public__post {
+  width: 10vw;
+}
+.user__info__private__post {
+  width: 10vw;
+}

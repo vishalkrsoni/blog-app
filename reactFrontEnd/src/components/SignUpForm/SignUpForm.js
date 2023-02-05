@@ -1,0 +1,45 @@
+import React from 'react'
+import { Link } from "react-router-dom";
+
+function SignUpForm() {
+  return (
+    <div>
+      <section className="login">
+        <div className="login_box">
+          <div className="left">
+            <div className="top_link">
+              <Link to="/">
+                <img
+                  src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download"
+                  alt=""
+                />
+                Return home
+              </Link>
+            </div>
+
+            <div className="contact">
+              <form action="">
+                <h3>SIGN UP</h3>
+                <input type="text" placeholder="NAME" />
+                <input type="text" placeholder="EMAIL" />
+                <input type="text" placeholder="PASSWORD" />
+                <button className="submit">SIGN UP</button>
+              </form>
+            </div>
+          </div>
+          <div className="right">
+            <div className="right-text">
+              <h2>The Tech Geek</h2>
+              <h5>A Technical Blogging Website</h5>
+            </div>
+            <div className="right-inductor">
+              <img src="" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default SignUpForm
