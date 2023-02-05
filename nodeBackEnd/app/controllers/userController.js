@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const uploadImageTos3 = require("../services/uploadToS3");
+const cloudinary = require("../config/cloudinary");
 
 const createUser = async (req, res) => {
   const { fullname, email, password } = req.body;
