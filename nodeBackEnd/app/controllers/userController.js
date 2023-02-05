@@ -21,6 +21,21 @@ const createUser = async (req, res) => {
   });
 };
 
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.send({
+      status: "success",
+      users,
+    });
+  } catch (err) {
+    res.status(500).send({
+      status: "error",
+      msg: "error fetching the users",
+    });
+  }
+};
+
 const userSignIn = async (req, res) => {
   const { email, password } = req.body;
 
@@ -89,25 +104,38 @@ const signOut = async (req, res) => {
   }
 };
 
-const getAllUsers= async(req,res)=>{
-
-  try {
-    const users = await User.find();
-    res.send({
-      status: "success",
-      users,
+const uploadProfile = async (req, res) => {
+  let imageUrl = await req.file.location;
+  let fileName = await req.file.key;
+  const { user } = req;
+  if (!user)
+    return res.status(401).json({
+      success: false,
+      message: "unauthorized access!",
     });
-  } catch (err) {
-    res.status(500).send({
-      status: "error",
-      msg: "error fetching the users",
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      user._id,
+      { profilePic: imageUrl },
+      { new: true }
+    );
+    res.status(201).json({
+      success: true,
+      message: "Your profile has updated!",
+      updatedUser
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: error,
+      message: "server error, try after some time",
     });
   }
-}
+};
 
 module.exports = {
   createUser,
   userSignIn,
   signOut,
+  uploadProfile,
   getAllUsers,
 };
