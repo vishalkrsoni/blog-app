@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const cloudinary = require("../config/cloudinary");
 
 const createUser = async (req, res) => {
   const { fullname, email, password } = req.body;
@@ -70,37 +69,6 @@ const userSignIn = async (req, res) => {
   });
 };
 
-const uploadProfile = async (req, res) => {
-  const { user } = req;
-  if (!user)
-    return res.status(401).json({
-      success: false,
-      message: "unauthorized access!",
-    });
-  try {
-    const result = await cloudinary.uploader.upload(req.file.path, {
-      public_id: `${user._id}_profile`,
-      // width: 500,
-      // height: 500,
-      // crop: 'fill',
-    });
-    const updatedUser = await User.findByIdAndUpdate(
-      user._id,
-      { profilePic: result.url },
-      { new: true }
-    );
-    res.status(201).json({
-      success: true,
-      message: "Your profile has updated!",
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: error,
-      message: "server error, try after some time",
-    });
-  }
-};
-
 const signOut = async (req, res) => {
   if (req.headers && req.headers.authorization) {
     const token = req.headers.authorization.split(" ")[1];
@@ -135,13 +103,11 @@ const getAllUsers= async(req,res)=>{
       msg: "error fetching the users",
     });
   }
-
 }
 
 module.exports = {
   createUser,
   userSignIn,
   signOut,
-  uploadProfile,
   getAllUsers,
 };
