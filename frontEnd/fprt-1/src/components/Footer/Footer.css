@@ -1,0 +1,73 @@
+.footer__container {
+  background-color: #111010;
+  width: 100%;
+  height: 170px;
+  display: flex;
+  padding: 16px;
+  gap: 16px;
+  justify-content: space-around;
+  color: aliceblue;
+  font-size: 20px;
+  border-radius: 2px;
+  bottom: 0;
+}
+
+.emails {
+  display: flex;
+  flex-direction: column;
+}
+.numbers {
+  display: flex;
+  flex-direction: column;
+}
+.address__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__navigate__options {
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+}
+.contact__icon {
+  font-size: 26px;
+  color: tomato;
+}
+
+.footer__contact {
+  display: flex;
+  gap: 16px;
+}
+
+.tab:hover {
+  color: rgb(228, 98, 75);
+  transform: scale(1.1);
+}
+
+.context {
+  /* padding: 12px; */
+  margin-left: 24px;
+  font-size: 22px;
+}
+.footer__icons__options i {
+  margin-top: 12px;
+  padding: 8px;
+  color: rgb(194, 211, 226);
+  font-size: 36px;
+}
+.footer__icons__options i:hover {
+  /* color: aquamarine; */
+  color: rgb(228, 98, 75);
+
+  transform: scale(1.4);
+}
+
+.footer__contact__options {
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+
+  /* color: bisque; */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
